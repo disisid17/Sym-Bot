@@ -4,18 +4,14 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import Pinecone
 from langchain.llms import HuggingFaceHub
 import pinecone
-from dotenv import load_dotenv
-import os
 
 class ChatBot():
-  load_dotenv()
   loader = TextLoader('./Dep2.txt')
   documents = loader.load()
   text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=4)
   docs = text_splitter.split_documents(documents)
 
   embeddings = HuggingFaceEmbeddings()
-  #print(os.getenv('PINECONE_API_KEY'))
   pinecone.init(
       api_key= "a38d4e80-cd1b-465b-82ce-077b9622b58c",
       environment='gcp-starter'
@@ -74,12 +70,6 @@ class ChatBot():
   from langchain.schema.runnable import RunnablePassthrough
   from langchain.schema.output_parser import StrOutputParser
 
-  """ rag_chain = (
-    {"context": docsearch.as_retriever(),  "question": RunnablePassthrough()} 
-    | prompt 
-    | llm
-    | StrOutputParser() 
-  ) """
   rag_chain = (
     prompt 
     | llm
