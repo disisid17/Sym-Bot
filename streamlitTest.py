@@ -3,9 +3,9 @@ import streamlit as st
 
 bot = ChatBot()
     
-st.set_page_config(page_title="Sym-Bot")
+st.set_page_config(page_title="Sym-Bio-t")
 with st.sidebar:
-    st.title('Symtom analyzing chatbot')
+    st.title('Hi there! I am Sym-Bio-t')
 
 # Function for generating LLM response
 def conv_past(inp):
