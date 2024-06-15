@@ -5,7 +5,7 @@ bot = ChatBot()
     
 st.set_page_config(page_title="Sym-Bio-t")
 with st.sidebar:
-    st.title('Hi there! I am Sym-Bio-t')
+    st.title('Hi there! I am a mental health analyzing chatbot')
 
 # Function for generating LLM response
 def conv_past(inp):
@@ -38,7 +38,7 @@ def afterRes(input_string):
     #return response
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "Hi there!"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hi there! How have you been feeling recently?"}]
 
 # Display chat messages
 for message in st.session_state.messages:

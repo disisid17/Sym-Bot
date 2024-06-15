@@ -12,12 +12,12 @@ class ChatBot():
   docs = text_splitter.split_documents(documents)
 
   embeddings = HuggingFaceEmbeddings()
-  pinecone.init(
-      api_key= "a38d4e80-cd1b-465b-82ce-077b9622b58c",
+  pinecone.init( 
+      api_key= "1025bd9c-9ef5-40ea-b0b2-ad629081106e",
       environment='gcp-starter'
   )
 
-  index_name = "langchain-demo"
+  index_name = "mentals"
 
   if index_name not in pinecone.list_indexes():
     pinecone.create_index(name=index_name, metric="cosine", dimension=768)
@@ -25,7 +25,7 @@ class ChatBot():
   else:
     docsearch = Pinecone.from_existing_index(index_name, embeddings)
 
-  repo_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+  repo_id = "mistralai/Mistral-7B-Instruct-v0.3"
   llm = HuggingFaceHub(
       repo_id=repo_id, model_kwargs={"temperature": 1, "top_p": 0.8, "top_k": 50,"max_new_tokens":400}, huggingfacehub_api_token="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"
   )
