@@ -13,7 +13,7 @@ class ChatBot():
 
   embeddings = HuggingFaceEmbeddings()
   pinecone.init( 
-      api_key= "1025bd9c-9ef5-40ea-b0b2-ad629081106e",
+      api_key= "b88670f6-916c-4d05-881f-cd484e808710",
       environment='gcp-starter'
   )
 
@@ -25,7 +25,7 @@ class ChatBot():
   else:
     docsearch = Pinecone.from_existing_index(index_name, embeddings)
 
-  repo_id = "mistralai/Mistral-7B-Instruct-v0.3"
+  repo_id = "ProbeMedicalYonseiMAILab/medllama3-v20"
   llm = HuggingFaceHub(
       repo_id=repo_id, model_kwargs={"temperature": 1, "top_p": 0.8, "top_k": 50,"max_new_tokens":400}, huggingfacehub_api_token="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"
   )
