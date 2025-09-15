@@ -13,7 +13,7 @@ class ChatBot():
 
   embeddings = HuggingFaceEmbeddings()
   pinecone.init( 
-      api_key= "b88670f6-916c-4d05-881f-cd484e808710",
+      api_key= "************************************",  
       environment='gcp-starter'
   )
 
@@ -27,7 +27,7 @@ class ChatBot():
 
   repo_id = "ProbeMedicalYonseiMAILab/medllama3-v20"
   llm = HuggingFaceHub(
-      repo_id=repo_id, model_kwargs={"temperature": 1, "top_p": 0.8, "top_k": 50,"max_new_tokens":400}, huggingfacehub_api_token="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"
+      repo_id=repo_id, model_kwargs={"temperature": 1, "top_p": 0.8, "top_k": 50,"max_new_tokens":400}, huggingfacehub_api_token="************************************"
   )
 
   from langchain import PromptTemplate
